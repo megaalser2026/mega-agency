@@ -53,6 +53,9 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
+  --color-whatsapp: var(--whatsapp);
+  --color-facebook: var(--facebook);
+  --color-instagram: var(--instagram);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
