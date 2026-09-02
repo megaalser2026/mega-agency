@@ -84,6 +84,22 @@
   --border: oklch(0.31 0.083 258.5 / 12%);
   --input: oklch(0.31 0.083 258.5 / 12%);
   --ring: oklch(0.688 0.108 216.5);
+  --whatsapp: oklch(0.77 0.19 149); /* #25D366 */
+  --facebook: oklch(0.58 0.21 259); /* #1877F2 */
+  --instagram: oklch(0.57 0.21 358); /* #DD2A7B */
+  --instagram-gradient: linear-gradient(
+    45deg,
+    oklch(0.75 0.16 70),
+    oklch(0.7 0.18 40),
+    oklch(0.57 0.21 358),
+    oklch(0.45 0.2 306)
+  );
+  --luxe-gradient: linear-gradient(
+    120deg,
+    var(--primary),
+    var(--navy-dark) 45%,
+    var(--accent)
+  );
 }
 
 @keyframes pixel-fade {
