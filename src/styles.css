@@ -53,6 +53,9 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
+  --color-whatsapp: var(--whatsapp);
+  --color-facebook: var(--facebook);
+  --color-instagram: var(--instagram);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -81,6 +84,22 @@
   --border: oklch(0.31 0.083 258.5 / 12%);
   --input: oklch(0.31 0.083 258.5 / 12%);
   --ring: oklch(0.688 0.108 216.5);
+  --whatsapp: oklch(0.77 0.19 149); /* #25D366 */
+  --facebook: oklch(0.58 0.21 259); /* #1877F2 */
+  --instagram: oklch(0.57 0.21 358); /* #DD2A7B */
+  --instagram-gradient: linear-gradient(
+    45deg,
+    oklch(0.75 0.16 70),
+    oklch(0.7 0.18 40),
+    oklch(0.57 0.21 358),
+    oklch(0.45 0.2 306)
+  );
+  --luxe-gradient: linear-gradient(
+    120deg,
+    var(--primary),
+    var(--navy-dark) 45%,
+    var(--accent)
+  );
 }
 
 @keyframes pixel-fade {
@@ -145,3 +164,50 @@
   }
 }
 
+
+@utility ig-gradient {
+  background-image: var(--instagram-gradient);
+}
+
+@utility luxe-gradient {
+  background-image: var(--luxe-gradient);
+}
+
+@utility luxe-text {
+  background-image: var(--luxe-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@utility luxe-card {
+  border: 1px solid var(--line);
+  background-color: var(--card);
+  box-shadow: 0 1px 2px oklch(0.31 0.083 258.5 / 6%);
+  transition:
+    transform 0.4s var(--ease-out-expo),
+    box-shadow 0.4s var(--ease-out-expo),
+    border-color 0.3s ease;
+}
+
+@utility luxe-card-hover {
+  &:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in oklch, var(--accent) 45%, transparent);
+    box-shadow: 0 24px 60px -24px oklch(0.31 0.083 258.5 / 30%);
+  }
+}
+
+@keyframes float-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--whatsapp) 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 16px transparent;
+  }
+}
+
+@utility pulse-ring {
+  animation: float-pulse 2.4s infinite;
+}
