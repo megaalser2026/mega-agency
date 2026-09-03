@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import logoAsset from "@/assets/mega-logo.png.asset.json";
+import { Link } from "@tanstack/react-router";
+
+import logoAsset from "@/assets/mega-logo-official.png.asset.json";
+import { SocialLinks } from "@/components/social-links";
 import aboutImage from "@/assets/about-systems.jpg";
 import projectFintech from "@/assets/project-fintech.jpg";
 import projectHealth from "@/assets/project-health.jpg";
@@ -68,9 +71,12 @@ function Sidebar() {
         ))}
       </nav>
 
-      <div className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground [writing-mode:vertical-rl]">
-        EST. 2026
-      </div>
+      <Link
+        to="/contact"
+        className="luxe-gradient rounded-full px-2 py-4 font-mono text-[10px] tracking-[0.3em] text-white transition-transform duration-300 hover:scale-105 [writing-mode:vertical-rl]"
+      >
+        CONTACT US
+      </Link>
     </aside>
   );
 }
@@ -86,12 +92,18 @@ function TopBar() {
           width={120}
           height={36}
         />
-        <div className="flex gap-4 text-xs font-bold">
+        <div className="flex items-center gap-4 text-xs font-bold">
           {navLinks.slice(1, 4).map((l) => (
             <a key={l.href} href={l.href} className="hover:text-accent">
               {l.label}
             </a>
           ))}
+          <Link
+            to="/contact"
+            className="luxe-gradient rounded-full px-3 py-2 text-white"
+          >
+            تواصل
+          </Link>
         </div>
       </div>
     </div>
@@ -134,6 +146,12 @@ function Index() {
                 استكشف خدماتنا
                 <span className="font-mono">→</span>
               </a>
+              <Link
+                to="/contact"
+                className="flex items-center gap-3 rounded-[4px] border border-line px-8 py-4 text-lg font-extrabold transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+              >
+                تواصل معنا
+              </Link>
             </div>
           </div>
         </div>
@@ -151,7 +169,7 @@ function Index() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-          <div className="group relative overflow-hidden rounded-xl border border-primary/20 bg-surface p-10 md:col-span-2 md:row-span-2">
+          <div className="group luxe-card luxe-card-hover relative overflow-hidden rounded-2xl p-10 md:col-span-2 md:row-span-2">
             <div className="relative z-10">
               <div className="mb-6 grid size-12 place-items-center rounded-lg bg-accent">
                 <span className="font-mono font-bold text-accent-foreground">
@@ -175,7 +193,7 @@ function Index() {
             <div className="absolute bottom-0 left-0 h-1 w-full origin-right scale-x-0 bg-accent transition-transform duration-500 group-hover:scale-x-100" />
           </div>
 
-          <div className="rounded-xl border border-line p-8 transition-colors hover:border-accent/40 md:col-span-2">
+          <div className="luxe-card luxe-card-hover rounded-2xl p-8 md:col-span-2">
             <h4 className="mb-2 text-xl font-bold">تطبيقات الويب (SaaS)</h4>
             <p className="text-sm text-muted-foreground">
               بناء منصات سحابية قابلة للتوسع بأحدث التقنيات، وصفحات هبوط عالية
@@ -183,36 +201,36 @@ function Index() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-line p-8">
+          <div className="luxe-card luxe-card-hover rounded-2xl p-8">
             <h4 className="mb-2 text-lg font-bold">بناء الشركات الناشئة</h4>
             <p className="text-xs text-muted-foreground">
               من الفكرة إلى المنتج الأولي MVP في وقت قياسي.
             </p>
           </div>
 
-          <div className="rounded-xl border border-line p-8">
+          <div className="luxe-card luxe-card-hover rounded-2xl p-8">
             <h4 className="mb-2 text-lg font-bold">تطبيقات الجوال</h4>
             <p className="text-xs text-muted-foreground">
               تجربة مستخدم فائقة على iOS و Android.
             </p>
           </div>
 
-          <div className="rounded-xl bg-accent p-8 text-accent-foreground md:col-span-2">
+          <div className="luxe-gradient luxe-card-hover rounded-2xl p-8 text-white transition-transform duration-500 md:col-span-2">
             <h4 className="mb-2 text-xl font-bold">الإعلام وإدارة التواصل</h4>
-            <p className="text-sm text-accent-foreground/80">
+            <p className="text-sm text-white/80">
               صناعة محتوى رقمي استراتيجي وإدارة كاملة للصفحات يعزز الوجود الرقمي
               لعلامتكم التجارية.
             </p>
           </div>
 
-          <div className="rounded-xl border border-line p-8">
+          <div className="luxe-card luxe-card-hover rounded-2xl p-8">
             <h4 className="mb-2 text-lg font-bold">المنصات التعليمية</h4>
             <p className="text-xs text-muted-foreground">
               حلول متكاملة لمراكز التدريب والتعليم عن بعد.
             </p>
           </div>
 
-          <div className="rounded-xl border border-line p-8">
+          <div className="luxe-card luxe-card-hover rounded-2xl p-8">
             <h4 className="mb-2 text-lg font-bold">حلول الشركات</h4>
             <p className="text-xs text-muted-foreground">
               منصات خدمية وأنظمة داخلية قوية للمؤسسات الكبرى.
@@ -419,17 +437,7 @@ function Index() {
           <div className="text-sm text-muted-foreground">
             © ٢٠٢٦ وكالة ميجا للحلول الرقمية. جميع الحقوق محفوظة.
           </div>
-          <div className="flex gap-6 text-muted-foreground">
-            <a href="#contact" className="hover:text-accent">
-              LinkedIn
-            </a>
-            <a href="#contact" className="hover:text-accent">
-              Twitter
-            </a>
-            <a href="#contact" className="hover:text-accent">
-              Instagram
-            </a>
-          </div>
+          <SocialLinks />
         </div>
       </footer>
     </div>
