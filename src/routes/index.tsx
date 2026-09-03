@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import logoAsset from "@/assets/mega-logo.png.asset.json";
+import { Link } from "@tanstack/react-router";
+
+import logoAsset from "@/assets/mega-logo-official.png.asset.json";
+import { SocialLinks } from "@/components/social-links";
 import aboutImage from "@/assets/about-systems.jpg";
 import projectFintech from "@/assets/project-fintech.jpg";
 import projectHealth from "@/assets/project-health.jpg";
@@ -419,16 +422,7 @@ function Index() {
           <div className="text-sm text-muted-foreground">
             © ٢٠٢٦ وكالة ميجا للحلول الرقمية. جميع الحقوق محفوظة.
           </div>
-          <div className="flex gap-6 text-muted-foreground">
-            <a href="#contact" className="hover:text-accent">
-              LinkedIn
-            </a>
-            <a href="#contact" className="hover:text-accent">
-              Twitter
-            </a>
-            <a href="#contact" className="hover:text-accent">
-              Instagram
-            </a>
+          <SocialLinks />
           </div>
         </div>
       </footer>
