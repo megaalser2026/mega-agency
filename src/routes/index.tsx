@@ -438,7 +438,6 @@ function Index() {
             © ٢٠٢٦ وكالة ميجا للحلول الرقمية. جميع الحقوق محفوظة.
           </div>
           <SocialLinks />
-          </div>
         </div>
       </footer>
     </div>
