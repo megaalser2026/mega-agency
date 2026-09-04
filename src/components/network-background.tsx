@@ -65,8 +65,10 @@ export function NetworkBackground({ className }: { className?: string }) {
       // Layer: connecting circuit lines
       for (let i = 0; i < nodes.length; i++) {
         const a = nodes[i];
+        if (!a) continue;
         for (let j = i + 1; j < nodes.length; j++) {
           const b = nodes[j];
+          if (!b) continue;
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const d = Math.hypot(dx, dy);
