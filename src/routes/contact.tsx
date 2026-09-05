@@ -1,10 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, Phone, MapPin, Clock, ArrowLeft } from "lucide-react";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { toast } from "sonner";
 
-import logoAsset from "@/assets/mega-logo-official.png.asset.json";
 import { SocialLinks } from "@/components/social-links";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppIcon } from "@/components/brand-icons";
 import { site } from "@/lib/site";
 
@@ -59,27 +60,9 @@ function ContactPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-40 border-b border-line bg-background/85 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-          <Link to="/">
-            <img
-              src={logoAsset.url}
-              alt="شعار وكالة ميجا"
-              className="h-11 w-auto"
-              width={160}
-              height={44}
-            />
-          </Link>
-          <Link
-            to="/"
-            className="flex items-center gap-2 text-sm font-bold transition-colors hover:text-accent"
-          >
-            العودة للرئيسية <ArrowLeft className="size-4" />
-          </Link>
-        </div>
-      </header>
+      <SiteHeader />
 
-      <section className="relative overflow-hidden border-b border-line px-6 py-20">
+      <section className="relative overflow-hidden border-b border-line px-6 pb-20 pt-36">
         <div className="pointer-events-none absolute inset-0 mesh-bg" />
         <div className="pointer-events-none absolute inset-0 hairlines opacity-60" />
         <div className="relative z-10 mx-auto max-w-7xl">
@@ -235,12 +218,7 @@ function ContactPage() {
         </div>
       </section>
 
-      <footer className="border-t border-line py-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 text-sm text-muted-foreground md:flex-row md:justify-between">
-          <span>© ٢٠٢٦ وكالة ميجا للحلول الرقمية.</span>
-          <SocialLinks />
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
