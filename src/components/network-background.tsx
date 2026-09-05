@@ -169,7 +169,7 @@ export function NetworkBackground({ className }: { className?: string }) {
       {/* Layer 2+3+4: canvas network */}
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
       {/* Layer 5: foreground glow / readability veil */}
-      <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_75%_20%,transparent,var(--background)_85%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(120%_100%_at_50%_30%,transparent_35%,var(--background)_100%)]" />
     </div>
   );
 }
