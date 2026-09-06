@@ -164,9 +164,6 @@ function Index() {
       {/* Services bento */}
       <section id="services" className="mx-auto max-w-7xl px-6 py-24 md:py-28">
         <Reveal className="mb-14 max-w-xl">
-          <h2 className="mb-4 font-mono text-sm uppercase tracking-[0.2em] text-accent">
-            {"\n"}
-          </h2>
           <h3 className="text-4xl font-extrabold md:text-5xl">
             خدماتنا المتقدمة
           </h3>
