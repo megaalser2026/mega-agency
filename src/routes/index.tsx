@@ -38,73 +38,73 @@ const projects = [
   {
     title: 'منصة "نماء" للاستثمار الذكي',
     desc: "تطوير كامل ونظام تنبؤ بالذكاء الاصطناعي",
-    tag: "FINTECH",
+    tag: "\n",
     img: projectFintech,
   },
   {
     title: 'تطبيق "صحة" للياقة البدنية',
     desc: "تجربة مستخدم متكاملة وإدارة تواصل اجتماعي",
-    tag: "HEALTH",
+    tag: "\n",
     img: projectHealth,
   },
   {
     title: "منصة تعليمية للتدريب عن بعد",
     desc: "نظام مسارات ودروس مباشرة وشهادات",
-    tag: "EDUCATION",
+    tag: "\n",
     img: aboutImage,
   },
   {
     title: "متجر إلكتروني متعدد الفروع",
     desc: "واجهة سريعة ولوحة تحكم للمخزون",
-    tag: "E-COMMERCE",
+    tag: "\n",
     img: projectFintech,
   },
   {
     title: "لوحة تحليلات تشغيلية",
     desc: "تصور بيانات لحظي لاتخاذ القرار",
-    tag: "DATA",
+    tag: "\n",
     img: projectHealth,
   },
   {
     title: "هوية بصرية وإدارة سوشيال ميديا",
     desc: "خطة محتوى شهرية وتصاميم متكاملة",
-    tag: "MEDIA",
+    tag: "\n",
     img: aboutImage,
   },
   {
     title: "مساعد ذكي للرد على العملاء",
     desc: "روبوت محادثة مبني على نماذج لغوية",
-    tag: "AI",
+    tag: "\n",
     img: projectFintech,
   },
   {
     title: "صفحة هبوط عالية التحويل",
     desc: "تصميم موجّه للأداء مع اختبارات A/B",
-    tag: "LANDING",
+    tag: "\n",
     img: projectHealth,
   },
   {
     title: "تطبيق جوال للحجوزات",
     desc: "تجربة موحدة على iOS و Android",
-    tag: "MOBILE",
+    tag: "\n",
     img: aboutImage,
   },
   {
     title: "نظام إدارة داخلي للمؤسسات",
     desc: "صلاحيات وأتمتة إجراءات العمل",
-    tag: "ENTERPRISE",
+    tag: "\n",
     img: projectFintech,
   },
   {
     title: "منصة حجز خدمات ميدانية",
     desc: "تتبّع الطلبات وإشعارات لحظية",
-    tag: "SERVICES",
+    tag: "\n",
     img: projectHealth,
   },
   {
     title: "إنتاج محتوى فيديو إعلاني",
     desc: "سيناريو وتصوير ومونتاج ونشر",
-    tag: "CONTENT",
+    tag: "\n",
     img: aboutImage,
   },
 ];
@@ -165,7 +165,7 @@ function Index() {
       <section id="services" className="mx-auto max-w-7xl px-6 py-24 md:py-28">
         <Reveal className="mb-14 max-w-xl">
           <h2 className="mb-4 font-mono text-sm uppercase tracking-[0.2em] text-accent">
-            System Components
+            {"\n"}
           </h2>
           <h3 className="text-4xl font-extrabold md:text-5xl">
             خدماتنا المتقدمة
@@ -257,7 +257,7 @@ function Index() {
         <div className="mx-auto grid max-w-7xl items-center gap-20 px-6 md:grid-cols-2">
           <Reveal>
             <h2 className="mb-6 font-mono text-sm uppercase tracking-widest text-accent">
-              Founding Principles
+              {"\n"}
             </h2>
             <h3 className="mb-8 text-4xl font-extrabold leading-[1.3] md:text-5xl">
               تأسست لتكون المحرك التقني للمنطقة منذ 2026
@@ -296,7 +296,7 @@ function Index() {
         <Reveal className="mb-14 flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="mb-4 font-mono text-sm uppercase tracking-[0.2em] text-accent">
-              Selected Work — 12 Projects
+              {"\n"}
             </h2>
             <h3 className="text-4xl font-extrabold md:text-5xl">
               مشاريع مختارة
