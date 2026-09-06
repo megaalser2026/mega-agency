@@ -94,9 +94,6 @@ export function SiteFooter() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-line pt-8 text-center text-sm text-muted-foreground md:flex-row md:text-right">
           <span>© ٢٠٢٦ وكالة ميجا للحلول الرقمية. جميع الحقوق محفوظة.</span>
-          <span className="font-mono text-xs tracking-widest">
-            WEB · MEDIA · AI SOLUTIONS
-          </span>
         </div>
       </div>
     </footer>
