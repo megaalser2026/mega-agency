@@ -253,9 +253,6 @@ function Index() {
       >
         <div className="mx-auto grid max-w-7xl items-center gap-20 px-6 md:grid-cols-2">
           <Reveal>
-            <h2 className="mb-6 font-mono text-sm uppercase tracking-widest text-accent">
-              {"\n"}
-            </h2>
             <h3 className="mb-8 text-4xl font-extrabold leading-[1.3] md:text-5xl">
               تأسست لتكون المحرك التقني للمنطقة منذ 2026
             </h3>
@@ -292,9 +289,6 @@ function Index() {
       <section id="portfolio" className="mx-auto max-w-7xl px-6 py-24 md:py-28">
         <Reveal className="mb-14 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <h2 className="mb-4 font-mono text-sm uppercase tracking-[0.2em] text-accent">
-              {"\n"}
-            </h2>
             <h3 className="text-4xl font-extrabold md:text-5xl">
               مشاريع مختارة
             </h3>
@@ -324,9 +318,6 @@ function Index() {
                   className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out-expo group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <span className="absolute right-4 top-4 rounded-full border border-white/30 bg-primary/70 px-3 py-1 font-mono text-[11px] tracking-widest text-white backdrop-blur-sm">
-                  {p.tag}
-                </span>
               </div>
               <div className="p-6">
                 <h4 className="mb-2 text-lg font-bold transition-colors group-hover:text-accent">
