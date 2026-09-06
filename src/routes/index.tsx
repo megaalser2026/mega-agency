@@ -129,10 +129,6 @@ function Index() {
               width={220}
               height={80}
             />
-            <div className="mb-7 inline-flex animate-[pixel-fade_0.6s_var(--ease-out-expo)_both] items-center gap-2 rounded-full border border-accent/40 bg-background/60 px-4 py-1.5 font-mono text-[13px] uppercase tracking-widest text-accent backdrop-blur-sm [animation-delay:100ms]">
-              <span className="size-1.5 animate-pulse rounded-full bg-accent" />
-              Web · Media · AI Solutions
-            </div>
             <h1 className="mb-7 animate-[pixel-fade_0.8s_var(--ease-out-expo)_both] text-[2.75rem] font-extrabold leading-[1.2] [animation-delay:200ms] md:text-7xl md:leading-[1.15]">
               نصمم الأنظمة
               <br />
