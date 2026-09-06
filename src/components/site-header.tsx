@@ -99,7 +99,7 @@ export function SiteHeader() {
         <div
           onClick={() => setOpen(false)}
           className={cn(
-            "absolute inset-0 bg-primary/40 backdrop-blur-sm transition-opacity duration-300",
+            "absolute inset-0 bg-primary/60 backdrop-blur-sm transition-opacity duration-300",
             open ? "opacity-100" : "opacity-0",
           )}
         />
@@ -107,8 +107,9 @@ export function SiteHeader() {
           role="dialog"
           aria-modal="true"
           aria-label="قائمة التنقل"
+          style={{ backgroundColor: "var(--primary)" }}
           className={cn(
-            "absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col gap-2 border-l border-line bg-card p-6 shadow-2xl transition-transform duration-400 ease-out-expo",
+            "absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col gap-1.5 border-l border-white/10 p-6 text-primary-foreground shadow-2xl transition-transform duration-400 ease-out-expo",
             open ? "translate-x-0" : "translate-x-full",
           )}
         >
@@ -124,7 +125,7 @@ export function SiteHeader() {
               type="button"
               onClick={() => setOpen(false)}
               aria-label="إغلاق القائمة"
-              className="grid size-11 place-items-center rounded-full border border-line transition-colors hover:border-accent hover:text-accent"
+              className="grid size-11 place-items-center rounded-full border border-white/15 text-primary-foreground transition-colors hover:border-accent hover:text-accent"
             >
               <X className="size-5" />
             </button>
@@ -134,7 +135,7 @@ export function SiteHeader() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="rounded-xl border border-transparent px-4 py-3.5 text-lg font-bold transition-colors hover:border-line hover:bg-surface hover:text-accent"
+              className="rounded-xl border border-transparent px-4 py-3.5 text-lg font-bold text-primary-foreground/90 transition-colors hover:border-white/10 hover:bg-white/10 hover:text-white"
             >
               {l.label}
             </a>
