@@ -66,10 +66,6 @@ function ContactPage() {
         <div className="pointer-events-none absolute inset-0 mesh-bg" />
         <div className="pointer-events-none absolute inset-0 hairlines opacity-60" />
         <div className="relative z-10 mx-auto max-w-7xl">
-          <span className="mb-5 inline-flex items-center gap-2 border border-accent/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-accent">
-            <span className="size-1.5 animate-pulse rounded-full bg-accent" />
-            Contact MEGA
-          </span>
           <h1 className="mb-6 max-w-2xl text-4xl font-extrabold leading-tight md:text-6xl">
             لنبدأ الحديث عن <span className="luxe-text">مشروعك القادم</span>
           </h1>
