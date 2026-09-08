@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { NetworkBackground } from "@/components/network-background";
 import { Reveal } from "@/components/reveal";
+import { useI18n, type Key } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,82 +35,24 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const projects = [
-  {
-    title: 'منصة "نماء" للاستثمار الذكي',
-    desc: "تطوير كامل ونظام تنبؤ بالذكاء الاصطناعي",
-    tag: "\n",
-    img: projectFintech,
-  },
-  {
-    title: 'تطبيق "صحة" للياقة البدنية',
-    desc: "تجربة مستخدم متكاملة وإدارة تواصل اجتماعي",
-    tag: "\n",
-    img: projectHealth,
-  },
-  {
-    title: "منصة تعليمية للتدريب عن بعد",
-    desc: "نظام مسارات ودروس مباشرة وشهادات",
-    tag: "\n",
-    img: aboutImage,
-  },
-  {
-    title: "متجر إلكتروني متعدد الفروع",
-    desc: "واجهة سريعة ولوحة تحكم للمخزون",
-    tag: "\n",
-    img: projectFintech,
-  },
-  {
-    title: "لوحة تحليلات تشغيلية",
-    desc: "تصور بيانات لحظي لاتخاذ القرار",
-    tag: "\n",
-    img: projectHealth,
-  },
-  {
-    title: "هوية بصرية وإدارة سوشيال ميديا",
-    desc: "خطة محتوى شهرية وتصاميم متكاملة",
-    tag: "\n",
-    img: aboutImage,
-  },
-  {
-    title: "مساعد ذكي للرد على العملاء",
-    desc: "روبوت محادثة مبني على نماذج لغوية",
-    tag: "\n",
-    img: projectFintech,
-  },
-  {
-    title: "صفحة هبوط عالية التحويل",
-    desc: "تصميم موجّه للأداء مع اختبارات A/B",
-    tag: "\n",
-    img: projectHealth,
-  },
-  {
-    title: "تطبيق جوال للحجوزات",
-    desc: "تجربة موحدة على iOS و Android",
-    tag: "\n",
-    img: aboutImage,
-  },
-  {
-    title: "نظام إدارة داخلي للمؤسسات",
-    desc: "صلاحيات وأتمتة إجراءات العمل",
-    tag: "\n",
-    img: projectFintech,
-  },
-  {
-    title: "منصة حجز خدمات ميدانية",
-    desc: "تتبّع الطلبات وإشعارات لحظية",
-    tag: "\n",
-    img: projectHealth,
-  },
-  {
-    title: "إنتاج محتوى فيديو إعلاني",
-    desc: "سيناريو وتصوير ومونتاج ونشر",
-    tag: "\n",
-    img: aboutImage,
-  },
+const projects: { titleKey: Key; descKey: Key; img: string }[] = [
+  { titleKey: "p1.title", descKey: "p1.desc", img: projectFintech },
+  { titleKey: "p2.title", descKey: "p2.desc", img: projectHealth },
+  { titleKey: "p3.title", descKey: "p3.desc", img: aboutImage },
+  { titleKey: "p4.title", descKey: "p4.desc", img: projectFintech },
+  { titleKey: "p5.title", descKey: "p5.desc", img: projectHealth },
+  { titleKey: "p6.title", descKey: "p6.desc", img: aboutImage },
+  { titleKey: "p7.title", descKey: "p7.desc", img: projectFintech },
+  { titleKey: "p8.title", descKey: "p8.desc", img: projectHealth },
+  { titleKey: "p9.title", descKey: "p9.desc", img: aboutImage },
+  { titleKey: "p10.title", descKey: "p10.desc", img: projectFintech },
+  { titleKey: "p11.title", descKey: "p11.desc", img: projectHealth },
+  { titleKey: "p12.title", descKey: "p12.desc", img: aboutImage },
 ];
 
 function Index() {
+  const { t } = useI18n();
+
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-accent/30">
       <SiteHeader />
@@ -124,33 +67,32 @@ function Index() {
           <div className="max-w-3xl">
             <img
               src={logoAsset.url}
-              alt="شعار وكالة ميجا"
+              alt={t("logo.alt")}
               className="mb-8 h-16 w-auto animate-[pixel-fade_0.7s_var(--ease-out-expo)_both] md:h-20"
               width={220}
               height={80}
             />
             <h1 className="mb-7 animate-[pixel-fade_0.8s_var(--ease-out-expo)_both] text-[2.75rem] font-extrabold leading-[1.2] [animation-delay:200ms] md:text-7xl md:leading-[1.15]">
-              نصمم الأنظمة
+              {t("hero.title1")}
               <br />
-              <span className="text-accent">التي تشكل المستقبل</span>
+              <span className="text-accent">{t("hero.title2")}</span>
             </h1>
             <p className="mb-10 max-w-xl animate-[pixel-fade_0.8s_var(--ease-out-expo)_both] text-lg leading-[2] text-muted-foreground [animation-delay:300ms] md:text-xl">
-              ميجا هي وكالة تقنية متخصصة في هندسة الحلول الرقمية المتكاملة، من
-              تطبيقات الويب المعقدة إلى أنظمة الذكاء الاصطناعي المبتكرة.
+              {t("hero.subtitle")}
             </p>
             <div className="flex animate-[pixel-fade_0.8s_var(--ease-out-expo)_both] flex-wrap gap-4 [animation-delay:400ms]">
               <a
                 href="#services"
                 className="flex items-center gap-4 rounded-full bg-primary px-8 py-4 text-lg font-extrabold text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:text-accent-foreground active:translate-y-0"
               >
-                استكشف خدماتنا
-                <span className="font-mono">→</span>
+                {t("hero.ctaServices")}
+                <span className="font-mono rtl:rotate-180">→</span>
               </a>
               <Link
                 to="/contact"
                 className="flex items-center gap-3 rounded-full border border-line bg-background/60 px-8 py-4 text-lg font-extrabold backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent active:translate-y-0"
               >
-                تواصل معنا
+                {t("hero.ctaContact")}
               </Link>
             </div>
           </div>
@@ -161,7 +103,7 @@ function Index() {
       <section id="services" className="mx-auto max-w-7xl px-6 py-24 md:py-28">
         <Reveal className="mb-14 max-w-xl">
           <h3 className="text-4xl font-extrabold md:text-5xl">
-            خدماتنا المتقدمة
+            {t("services.heading")}
           </h3>
         </Reveal>
 
@@ -173,45 +115,47 @@ function Index() {
                   AI
                 </span>
               </div>
-              <h4 className="mb-4 text-2xl font-bold">حلول الذكاء الاصطناعي</h4>
+              <h4 className="mb-4 text-2xl font-bold">{t("services.ai.title")}</h4>
               <p className="mb-8 text-[15px] leading-[1.9] text-muted-foreground">
-                تطوير نماذج تعلم آلي مخصصة لتحسين اتخاذ القرار وأتمتة العمليات
-                المعقدة.
+                {t("services.ai.desc")}
               </p>
               <ul className="space-y-3 text-[15px] font-medium">
                 <li className="flex items-center gap-3">
-                  <span className="size-1.5 bg-accent" /> معالجة اللغات الطبيعية
+                  <span className="size-1.5 bg-accent" /> {t("services.ai.f1")}
                 </li>
                 <li className="flex items-center gap-3">
-                  <span className="size-1.5 bg-accent" /> رؤية الحاسوب
+                  <span className="size-1.5 bg-accent" /> {t("services.ai.f2")}
                 </li>
               </ul>
             </div>
-            <div className="absolute bottom-0 left-0 h-1 w-full origin-right scale-x-0 bg-accent transition-transform duration-500 group-hover:scale-x-100" />
+            <div className="absolute bottom-0 inset-x-0 h-1 w-full origin-center scale-x-0 bg-accent transition-transform duration-500 group-hover:scale-x-100" />
           </Reveal>
 
           <Reveal
             delay={80}
             className="luxe-card luxe-card-hover rounded-2xl p-8 md:col-span-2"
           >
-            <h4 className="mb-2 text-xl font-bold">تطبيقات الويب (SaaS)</h4>
+            <h4 className="mb-2 text-xl font-bold">{t("services.saas.title")}</h4>
             <p className="text-[15px] leading-[1.9] text-muted-foreground">
-              بناء منصات سحابية قابلة للتوسع بأحدث التقنيات، وصفحات هبوط عالية
-              التحويل.
+              {t("services.saas.desc")}
             </p>
           </Reveal>
 
           <Reveal delay={120} className="luxe-card luxe-card-hover rounded-2xl p-8">
-            <h4 className="mb-2 text-lg font-bold">بناء الشركات الناشئة</h4>
+            <h4 className="mb-2 text-lg font-bold">
+              {t("services.startup.title")}
+            </h4>
             <p className="text-[15px] leading-[1.9] text-muted-foreground">
-              من الفكرة إلى المنتج الأولي MVP في وقت قياسي.
+              {t("services.startup.desc")}
             </p>
           </Reveal>
 
           <Reveal delay={160} className="luxe-card luxe-card-hover rounded-2xl p-8">
-            <h4 className="mb-2 text-lg font-bold">تطبيقات الجوال</h4>
+            <h4 className="mb-2 text-lg font-bold">
+              {t("services.mobile.title")}
+            </h4>
             <p className="text-[15px] leading-[1.9] text-muted-foreground">
-              تجربة مستخدم فائقة على iOS و Android.
+              {t("services.mobile.desc")}
             </p>
           </Reveal>
 
@@ -219,24 +163,25 @@ function Index() {
             delay={80}
             className="luxe-gradient luxe-card-hover rounded-2xl p-8 text-white transition-transform duration-500 md:col-span-2"
           >
-            <h4 className="mb-2 text-xl font-bold">الإعلام وإدارة التواصل</h4>
+            <h4 className="mb-2 text-xl font-bold">{t("services.media.title")}</h4>
             <p className="text-[15px] leading-[1.9] text-white/85">
-              صناعة محتوى رقمي استراتيجي وإدارة كاملة للصفحات يعزز الوجود الرقمي
-              لعلامتكم التجارية.
+              {t("services.media.desc")}
             </p>
           </Reveal>
 
           <Reveal delay={120} className="luxe-card luxe-card-hover rounded-2xl p-8">
-            <h4 className="mb-2 text-lg font-bold">المنصات التعليمية</h4>
+            <h4 className="mb-2 text-lg font-bold">{t("services.edu.title")}</h4>
             <p className="text-[15px] leading-[1.9] text-muted-foreground">
-              حلول متكاملة لمراكز التدريب والتعليم عن بعد.
+              {t("services.edu.desc")}
             </p>
           </Reveal>
 
           <Reveal delay={160} className="luxe-card luxe-card-hover rounded-2xl p-8">
-            <h4 className="mb-2 text-lg font-bold">حلول الشركات</h4>
+            <h4 className="mb-2 text-lg font-bold">
+              {t("services.enterprise.title")}
+            </h4>
             <p className="text-[15px] leading-[1.9] text-muted-foreground">
-              منصات خدمية وأنظمة داخلية قوية للمؤسسات الكبرى.
+              {t("services.enterprise.desc")}
             </p>
           </Reveal>
         </div>
@@ -250,27 +195,25 @@ function Index() {
         <div className="mx-auto grid max-w-7xl items-center gap-20 px-6 md:grid-cols-2">
           <Reveal>
             <h3 className="mb-8 text-4xl font-extrabold leading-[1.3] md:text-5xl">
-              تأسست لتكون المحرك التقني للمنطقة منذ 2026
+              {t("about.heading")}
             </h3>
             <p className="text-[17px] leading-[2] text-muted-foreground">
-              نحن لسنا مجرد وكالة تطوير؛ نحن شركاء نجاح. رؤيتنا تعتمد على دمج
-              الفن والهندسة لخلق تجارب رقمية تترك أثراً حقيقياً في السوق العربي
-              والعالمي.
+              {t("about.body")}
             </p>
           </Reveal>
           <Reveal delay={120} className="relative">
             <img
               src={aboutImage}
-              alt="بنية تقنية متكاملة لخوادم ميجا"
+              alt={t("about.imageAlt")}
               loading="lazy"
               width={800}
               height={1000}
               className="aspect-[4/5] w-full rounded-2xl border border-line object-cover"
             />
-            <div className="absolute -bottom-6 -right-4 rounded-2xl border border-line bg-card/95 p-5 shadow-xl backdrop-blur-sm md:-right-6 md:p-6">
+            <div className="absolute -bottom-6 end-[-1rem] rounded-2xl border border-line bg-card/95 p-5 shadow-xl backdrop-blur-sm md:end-[-1.5rem] md:p-6">
               <img
                 src={logoAsset.url}
-                alt="شعار وكالة ميجا"
+                alt={t("logo.alt")}
                 loading="lazy"
                 width={180}
                 height={56}
@@ -286,14 +229,14 @@ function Index() {
         <Reveal className="mb-14 flex flex-wrap items-end justify-between gap-4">
           <div>
             <h3 className="text-4xl font-extrabold md:text-5xl">
-              مشاريع مختارة
+              {t("portfolio.heading")}
             </h3>
           </div>
           <Link
             to="/contact"
             className="text-[15px] font-bold text-accent hover:underline"
           >
-            اطلب مشروعك
+            {t("portfolio.cta")}
           </Link>
         </Reveal>
 
@@ -336,11 +279,10 @@ function Index() {
         <div className="mx-auto grid max-w-7xl gap-16 px-6 md:grid-cols-2">
           <Reveal>
             <h3 className="mb-6 text-3xl font-extrabold md:text-4xl">
-              دعنا نبني مستقبلك الرقمي
+              {t("home.contact.heading")}
             </h3>
             <p className="mb-10 text-[17px] leading-[2] text-muted-foreground">
-              تواصل معنا اليوم لمناقشة مشروعك القادم والحصول على استشارة تقنية
-              مجانية.
+              {t("home.contact.body")}
             </p>
             <div className="space-y-6">
               <div className="flex items-center gap-4">
@@ -369,17 +311,17 @@ function Index() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-muted-foreground">
-                    الاسم الكامل
+                    {t("form.name")}
                   </label>
                   <input
                     type="text"
                     className="w-full rounded-lg border border-line bg-surface p-3 text-[15px] outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent"
-                    placeholder="أحمد محمد"
+                    placeholder={t("form.name.ph")}
                   />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-muted-foreground">
-                    البريد الإلكتروني
+                    {t("form.email")}
                   </label>
                   <input
                     type="email"
@@ -390,28 +332,28 @@ function Index() {
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-bold text-muted-foreground">
-                  الخدمة المطلوبة
+                  {t("form.service")}
                 </label>
                 <select className="w-full appearance-none rounded-lg border border-line bg-surface p-3 text-[15px] outline-none focus:border-accent focus:ring-1 focus:ring-accent">
-                  <option>حلول الذكاء الاصطناعي</option>
-                  <option>تطوير ويب / تطبيقات</option>
-                  <option>إدارة إعلامية</option>
+                  <option>{t("form.opt.ai")}</option>
+                  <option>{t("form.opt.web")}</option>
+                  <option>{t("form.opt.media")}</option>
                 </select>
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-bold text-muted-foreground">
-                  الرسالة
+                  {t("form.message")}
                 </label>
                 <textarea
                   className="min-h-[120px] w-full rounded-lg border border-line bg-surface p-3 text-[15px] outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent"
-                  placeholder="كيف يمكننا مساعدتك؟"
+                  placeholder={t("form.message.ph")}
                 />
               </div>
               <button
                 type="submit"
                 className="w-full rounded-lg bg-primary py-4 text-[16px] font-bold text-primary-foreground transition-all duration-300 hover:bg-accent hover:text-accent-foreground active:scale-[0.99]"
               >
-                إرسال الطلب
+                {t("form.submit")}
               </button>
             </form>
           </Reveal>

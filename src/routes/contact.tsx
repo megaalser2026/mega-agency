@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppIcon } from "@/components/brand-icons";
 import { site } from "@/lib/site";
+import { useI18n, type Key } from "@/lib/i18n";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -28,34 +29,41 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-const cards = [
+const cards: {
+  icon: typeof Mail;
+  titleKey: Key;
+  value: string;
+  valueKey?: Key;
+  href?: string;
+}[] = [
   {
     icon: Mail,
-    title: "البريد الإلكتروني",
+    titleKey: "contact.card.email",
     value: site.email,
     href: `mailto:${site.email}`,
   },
   {
     icon: Phone,
-    title: "الهاتف",
+    titleKey: "contact.card.phone",
     value: site.phone,
     href: `tel:${site.whatsappNumber}`,
   },
   {
     icon: MapPin,
-    title: "المقر",
-    value: "الرياض، المملكة العربية السعودية",
-    href: undefined,
+    titleKey: "contact.card.hq",
+    value: "",
+    valueKey: "contact.card.hqValue",
   },
   {
     icon: Clock,
-    title: "ساعات العمل",
-    value: "الأحد - الخميس، ٩ص - ٦م",
-    href: undefined,
+    titleKey: "contact.card.hours",
+    value: "",
+    valueKey: "contact.card.hoursValue",
   },
 ];
 
 function ContactPage() {
+  const { t } = useI18n();
   const [sending, setSending] = useState(false);
 
   return (
@@ -66,44 +74,43 @@ function ContactPage() {
         <div className="pointer-events-none absolute inset-0 mesh-bg" />
         <div className="pointer-events-none absolute inset-0 hairlines opacity-60" />
         <div className="relative z-10 mx-auto max-w-7xl">
-          <span className="mb-5 inline-flex items-center gap-2 border border-accent/40 px-3 py-1 font-mono text-xs uppercase tracking-widest text-accent">
-            <span className="size-1.5 animate-pulse rounded-full bg-accent" />
-            Contact MEGA
-          </span>
           <h1 className="mb-6 max-w-2xl text-4xl font-extrabold leading-tight md:text-6xl">
-            لنبدأ الحديث عن <span className="luxe-text">مشروعك القادم</span>
+            {t("contact.h1a")}{" "}
+            <span className="luxe-text">{t("contact.h1b")}</span>
           </h1>
           <p className="max-w-xl text-lg text-muted-foreground">
-            اختر الطريقة الأنسب لك للتواصل مع فريق ميجا، ونعدك برد خلال ساعات
-            العمل الرسمية.
+            {t("contact.lead")}
           </p>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-4 md:grid-cols-4">
-          {cards.map(({ icon: Icon, title, value, href }) => {
+          {cards.map(({ icon: Icon, titleKey, value, valueKey, href }) => {
             const inner = (
               <>
                 <div className="mb-5 grid size-11 place-items-center rounded-lg bg-primary text-primary-foreground">
                   <Icon className="size-5" />
                 </div>
                 <div className="mb-1 text-sm font-bold text-muted-foreground">
-                  {title}
+                  {t(titleKey)}
                 </div>
-                <div className="font-bold">{value}</div>
+                <div className="font-bold">{valueKey ? t(valueKey) : value}</div>
               </>
             );
             return href ? (
               <a
-                key={title}
+                key={titleKey}
                 href={href}
                 className="luxe-card luxe-card-hover block rounded-2xl p-7"
               >
                 {inner}
               </a>
             ) : (
-              <div key={title} className="luxe-card luxe-card-hover rounded-2xl p-7">
+              <div
+                key={titleKey}
+                className="luxe-card luxe-card-hover rounded-2xl p-7"
+              >
                 {inner}
               </div>
             );
@@ -120,26 +127,26 @@ function ContactPage() {
               setSending(true);
               setTimeout(() => {
                 setSending(false);
-                toast.success("تم استلام رسالتك، سنعاود التواصل قريباً");
+                toast.success(t("form.sent"));
                 (e.target as HTMLFormElement).reset();
               }, 700);
             }}
           >
-            <h2 className="text-2xl font-extrabold">أرسل لنا رسالة</h2>
+            <h2 className="text-2xl font-extrabold">{t("contact.formHeading")}</h2>
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="space-y-2">
                 <label className="text-xs font-bold tracking-wider text-muted-foreground">
-                  الاسم الكامل
+                  {t("form.name")}
                 </label>
                 <input
                   required
                   className="w-full rounded-lg border border-line bg-surface p-3 text-sm outline-none transition-shadow focus:ring-2 focus:ring-accent"
-                  placeholder="أحمد محمد"
+                  placeholder={t("form.name.ph")}
                 />
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold tracking-wider text-muted-foreground">
-                  البريد الإلكتروني
+                  {t("form.email")}
                 </label>
                 <input
                   required
@@ -152,34 +159,34 @@ function ContactPage() {
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="space-y-2">
                 <label className="text-xs font-bold tracking-wider text-muted-foreground">
-                  رقم الجوال
+                  {t("form.phone")}
                 </label>
                 <input
                   className="w-full rounded-lg border border-line bg-surface p-3 text-sm outline-none transition-shadow focus:ring-2 focus:ring-accent"
-                  placeholder="+966 5x xxx xxxx"
+                  placeholder={t("form.phone.ph")}
                 />
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold tracking-wider text-muted-foreground">
-                  الخدمة المطلوبة
+                  {t("form.service")}
                 </label>
                 <select className="w-full appearance-none rounded-lg border border-line bg-surface p-3 text-sm outline-none focus:ring-2 focus:ring-accent">
-                  <option>تطوير موقع أو صفحة هبوط</option>
-                  <option>منصة تعليمية أو منصة خدمات</option>
-                  <option>تطبيق جوال iOS / Android</option>
-                  <option>إدارة سوشيال ميديا وإنتاج محتوى</option>
-                  <option>حلول ذكاء اصطناعي</option>
+                  <option>{t("form.opt.site")}</option>
+                  <option>{t("form.opt.edu")}</option>
+                  <option>{t("form.opt.app")}</option>
+                  <option>{t("form.opt.social")}</option>
+                  <option>{t("form.opt.ai")}</option>
                 </select>
               </div>
             </div>
             <div className="space-y-2">
               <label className="text-xs font-bold tracking-wider text-muted-foreground">
-                تفاصيل المشروع
-              </label>
-              <textarea
-                required
-                className="min-h-[150px] w-full rounded-lg border border-line bg-surface p-3 text-sm outline-none transition-shadow focus:ring-2 focus:ring-accent"
-                placeholder="اكتب لنا فكرة مشروعك والميزانية التقريبية..."
+                  {t("form.details")}
+                </label>
+                <textarea
+                  required
+                  className="min-h-[150px] w-full rounded-lg border border-line bg-surface p-3 text-sm outline-none transition-shadow focus:ring-2 focus:ring-accent"
+                  placeholder={t("form.details.ph")}
               />
             </div>
             <button

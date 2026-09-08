@@ -4,7 +4,13 @@ import { Check, Globe } from "lucide-react";
 import { locales, useI18n, type Locale } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
-export function LanguageSwitcher({ className }: { className?: string }) {
+export function LanguageSwitcher({
+  className,
+  triggerClassName,
+}: {
+  className?: string;
+  triggerClassName?: string;
+}) {
   const { locale, setLocale, t } = useI18n();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -33,7 +39,10 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={t("nav.language")}
-        className="flex h-11 items-center gap-2 rounded-full border border-line bg-background/60 px-3 text-sm font-bold text-foreground transition-colors duration-300 hover:border-accent hover:text-accent"
+        className={cn(
+          "flex h-11 items-center gap-2 rounded-full border border-line bg-background/60 px-3 text-sm font-bold text-foreground transition-colors duration-300 hover:border-accent hover:text-accent",
+          triggerClassName,
+        )}
       >
         <Globe className="size-4" />
         <span aria-hidden="true">{current.flag}</span>
